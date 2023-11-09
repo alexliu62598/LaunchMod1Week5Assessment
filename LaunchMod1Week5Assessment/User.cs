@@ -32,17 +32,23 @@ namespace LaunchMod1Week5Assessment
             }
         }
 
-        public void CreatePassword(string email, string password)
+        public string CreatePassword(string email, string password) // changed return type to string to accomodate the confirmation variable
         {
+            string confirmation;
             if (email == Email)
             {
                 Password = password;
-            }
+            } 
 
             if (Password != null)
             {
-                var confirmation = "Password Created";
+                confirmation = "Password Created";
             }
+            else
+            {
+                confirmation = "Try again";
+            }
+            return confirmation; //refactored if/else statement to allow "confirmation" to be assigned to correct value and enabled method to return "confirmation"
         }
 
         public string LogIn(string password)
